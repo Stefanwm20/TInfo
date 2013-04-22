@@ -1,0 +1,16 @@
+%sum = (dword) 0
+%adr = (byte) 0
+
+while (%adr < 0x20)
+{
+    if (%adr != 0x14)
+    {
+        %sum += dword at %adr
+        %write ("%x  %x", (dword)%adr, dword at %adr)
+    }
+    %adr += 4
+}
+dword at 0x14 = (dword)0 - (dword)%sum
+%write("The 2's complement of the vector checksum is %x", (dword)0 - (dword)%sum)
+
+

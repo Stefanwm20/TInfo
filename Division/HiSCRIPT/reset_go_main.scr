@@ -1,0 +1,36 @@
+//Hitex/Lue/02.02.2004
+// How to debug a flash application ?
+// Target: Hitex LPC-Stick (Philips LPC2468)
+// Script: reset_go_main.scr
+
+// The apparent reset value that the user will see will be altered by the Boot Loader code, 
+// which always runs initially at reset. User documentation will reflect this difference.
+// 00: Boot Loader Mode. Interrupt vectors are re-mapped from Boot Block.
+// 01: User Flash Mode.  Interrupt vectors are executed from User Flash.
+// 02: User Ram Mode.  Interrupt vectors are re-mapped from User Ram.
+
+// The boot loader code mapped at 0
+RESET TARGET
+WAIT
+// Script command sets processor in User Flash mode for debugging
+// User code validation by bootloader is skipped - the flash application
+// may be debugged at 0 regardless the user code at 0x00000014 is valid or not  
+// finally the next line can be commented out to check the valid user code  
+OUTPUT DWORD TO 0xE01FC040 = 0x01
+
+// disable ints
+Register cpsr=0xd3
+
+%pc = 0
+
+// Start program ecxecution till main 
+GO UNTIL main
+WAIT
+
+
+
+
+
+
+
+

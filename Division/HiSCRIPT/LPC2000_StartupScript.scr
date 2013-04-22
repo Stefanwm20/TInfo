@@ -1,0 +1,12 @@
+// Hitex/lue/21.01.2004
+// Initialize LPC24XX
+
+// Execute Remap for flash debug
+RESET TARGET
+
+OUTPUT DWORD TO 0xE01FC040 = 0x00000001
+// set programm counter to startaddress of user flash
+%pc = 0x0
+
+
+

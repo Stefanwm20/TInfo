@@ -1,0 +1,35 @@
+// Phytec phyCORE-LPC2292/94 Board configure
+
+// PINSEL1 Pin Function Select Register 1 
+//  CS0-CS3; WE connected to chip pins
+OUTPUT DWORD TO 0xE002C014  COUNT 1 = 0x0E6149E4
+
+// BCFG0 Register Configuration Value: 0x2000 0460 for Flash at 0x80000000
+//  IDCY : 0 -> 1 idle cycle
+//  WST1 : 3 -> 6 CCLK cycles
+//  RBLE : 1 -> byte partitioned device
+//  WST2 : 0 -> only for read access
+//  BUSERR : 0 -> not relevant
+//  WPERR : 0 -> no write protection error
+//  WP : 0 -> bank not write protected
+//  BM : 0 -> no burst ROM bank
+//  MW : 2 -> 32-bit wide bus
+//  AT : 0 -> always write 0 to this field
+OUTPUT DWORD TO 0xFFE00000 COUNT 1 = 0x20000C60
+
+// BCFG1 Register Configuration Value: 0x2000 0400 for RAM at 0x81000000
+//  IDCY : 0 -> 1 idle cycle
+//  WST1 : 0 -> 3 CCLK cycles
+//  RBLE : 1 -> byte partitioned device
+//  WST2 : 0 -> only for read access
+//  BUSERR : 0 -> not relevant
+//  WPERR : 0 -> no write protection error
+//  WP : 0 -> bank not write protected
+//  BM : 0 -> no burst rom bank
+//  MW : 2 -> 32-bit wide bus
+//  AT : 0 -> always write 0 to this field
+OUTPUT DWORD TO 0xFFE00004 COUNT 1 = 0x20000C01
+
+// Remap to external Flash
+// OUTPUT BYTE TO 0xE01FC040 = 0x03 
+
