@@ -1,0 +1,2 @@
+; Macro contains list of relocatable input files
+$(LinkObjects)

@@ -1,0 +1,7 @@
+RESET TARGET
+%pc = &_app_entry
+
+
+
+
+

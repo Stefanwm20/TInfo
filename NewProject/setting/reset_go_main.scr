@@ -1,0 +1,14 @@
+RESET TARGET 
+
+%pc = &_app_entry
+PAUSE 1
+
+Go UNTIL main
+wait
+
+
+
+
+
+
+
