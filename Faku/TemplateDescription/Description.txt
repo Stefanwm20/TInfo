@@ -1,0 +1,75 @@
+/*** Template Description File     ***/
+/*** Hitex/Lue/07/03/21			   ***/
+
+-------------------------------------------------------------
+Target Identification:
+
+
+Controller(Vendor):		LPC2468 (NXP/Philips)
+Processor:				arm7tdmi
+Processor architecture:	Armv4T
+
+ToolChain:				GNU
+
+Soures: 				Startup.s	processor specific startup code
+						main.s		Assembler entry code
+-------------------------------------------------------------
+Application Settings - Template 
+
+1.) Clock settings 
+Pll: not initialized
+Clock:   4 MHz
+PLL:   288 MHz
+CPU:    48 MHz
+
+
+
+2.) Common used memory model
+
+	+---------------+	End ram      
+	|    Stack		|		
+	|      		  	|		
+	+---------------+
+	|	   .		|
+	|				|
+	|	   .		|	Ram(internal)
+	|	   :		|
+	|	   			|
+	|    Heap     	|
+	+---------------+	
+	| uninitialized |
+	| data			|
+	+---------------+			+---------------+	End Ram
+	| initialized 	|			| application 	|	
+	| data		 	|			| data	 		|	Ram (external)
+	| 				|			| 				|
+	+---------------+ Start Ram	+---------------+	Start Ram
+	
+	
+	+---------------+ End Flash	+---------------+	End Flash			
+	|				|			|				|	
+	|application	| Flash 	|application	|	Flash(external)
+	| code			|(internal)	| code			|		
+	+---------------+Start Flash+---------------+	Start Flash			
+
+		 	   
+
+3) Target specific memory layout
+
+   Flash(internal): Start:  0x00000000			Size:  0x00080000
+   Flash(external):	none		   
+   Ram(internal):	Start:  0x40000000  		Size:  0x00010000
+   Ram(external):	none
+   Heap:	 		not used
+   Stack:			USR(initialized,not used)	Size:  0x00000004
+					IRQ(initialized)        	Size:  0x00000200			
+					FIQ(initialized,not used) 	Size:  0x00000004			
+					ABT(initialized,not used) 	Size:  0x00000004			
+					SVC(default) 	            Size:  0x00000800			
+
+4.) Miscellaneous
+
+Interrupt system: initialized
+Libraries:	  	  
+
+

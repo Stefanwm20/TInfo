@@ -1,0 +1,606 @@
+Archive member included because of file (symbol)
+
+C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+                              .\objects\target_info.o (__udivsi3)
+C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+                              C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o) (__div0)
+
+Allocating common symbols
+Common symbol       size              file
+
+uart0_tx_buffer     0x80              .\objects\uart.o
+uart2_rx_extract_idx
+                    0x2               .\objects\uart.o
+uart2_tx_insert_idx
+                    0x2               .\objects\uart.o
+uart0_tx_insert_idx
+                    0x2               .\objects\uart.o
+uart0_rx_insert_idx
+                    0x2               .\objects\uart.o
+uart2_rx_insert_idx
+                    0x2               .\objects\uart.o
+uart0_tx_extract_idx
+                    0x2               .\objects\uart.o
+uart2_tx_buffer     0x80              .\objects\uart.o
+uart2_tx_running    0x4               .\objects\uart.o
+uart2_rx_buffer     0x80              .\objects\uart.o
+uart0_tx_running    0x4               .\objects\uart.o
+uart2_tx_extract_idx
+                    0x2               .\objects\uart.o
+uart0_rx_buffer     0x80              .\objects\uart.o
+uart0_rx_extract_idx
+                    0x2               .\objects\uart.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+IntCode          0x00000000         0x00080000         xr
+IntDataRAM       0x40000000         0x00010000         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD .\objects\main.o
+LOAD .\objects\startup.o
+LOAD .\objects\ConfigStick.o
+LOAD .\objects\armVIC.o
+LOAD .\objects\conio.o
+LOAD .\objects\delay.o
+LOAD .\objects\fio.o
+LOAD .\objects\interrupt.o
+LOAD .\objects\portlcd.o
+LOAD .\objects\syscalls_lpc.o
+LOAD .\objects\target_info.o
+LOAD .\objects\uart.o
+LOAD .\objects\uartISR.o
+                0x40010000                PROVIDE (_top_stack_, 0x40010000)
+                0x40010000                PROVIDE (_end_of_heap_, 0x40010000)
+
+.text           0x00000000     0x2f48
+                0x00000000                __code_start__ = .
+ .\objects\startup.o(.text)
+ .text          0x00000000      0x214 .\objects\startup.o
+                0x00000000                _startup
+                0x00000038                ResetEntry
+                0x0000004c                start
+                0x0000004c                Start_init_s
+ *.o(.text)
+ .text          0x00000214       0x38 .\objects\main.o
+                0x00000214                main
+ .text          0x0000024c      0x818 .\objects\ConfigStick.o
+                0x000008f0                Check_Hardware
+                0x000007f8                ADC_get_channel
+                0x0000024c                Peripheral_Clock_Configuration
+                0x000002ac                Power_Configuration
+                0x000009d4                BaseStickConfig
+                0x000007cc                WDT_Configuration
+                0x00000354                GPIO_Configuration
+ .text          0x00000a64      0x1f4 .\objects\armVIC.o
+                0x00000af8                restoreIRQ
+                0x00000c18                enableFIQ
+                0x00000b88                disableFIQ
+                0x00000b48                enableIRQ
+                0x00000bc8                restoreFIQ
+                0x00000a64                disableIRQ
+ .text          0x00000c58      0x140 .\objects\conio.o
+                0x00000cec                kbhit
+                0x00000d54                putch
+                0x00000c58                getch
+                0x00000c94                getche
+ .text          0x00000d98      0x144 .\objects\delay.o
+                0x00000d98                delay
+                0x00000e70                init_delay
+ .text          0x00000edc      0x1b8 .\objects\fio.o
+                0x00000edc                GPIOInit
+ .text          0x00001094       0xd8 .\objects\interrupt.o
+                0x00001094                SWI_Handler
+                0x00001138                Undef_Handler
+                0x00001124                DAbt_Handler
+                0x0000114c                FIQ_Handler
+                0x00001110                PAbt_Handler
+ .text          0x0000116c      0x6a8 .\objects\portlcd.o
+                0x00001250                lcd_write
+                0x00001460                LCD_init
+                0x00001544                LCD_load
+                0x0000116c                lcd_delay
+                0x000013a8                lcd_wait_busy
+                0x000013e0                lcd_write_cmd
+                0x00001710                LCD_puts
+                0x00001768                LCD_bargraph
+                0x000011a4                lcd_write_4bit
+                0x00001690                LCD_on
+                0x000016b0                LCD_putc
+                0x00001420                lcd_write_data
+                0x000015bc                LCD_gotoxy
+                0x00001288                lcd_read_stat
+                0x00001670                LCD_cur_off
+                0x00001644                LCD_cls
+ .text          0x00001814      0x27c .\objects\syscalls_lpc.o
+                0x000019e8                _sbrk_r
+                0x000018d4                _read_r
+                0x00001814                _write_r
+ .text          0x00001a90      0x180 .\objects\target_info.o
+                0x00001b6c                GetPclk
+                0x00001a90                GetCclk
+ .text          0x00001c10      0xd18 .\objects\uart.o
+                0x000025d4                uart2Space
+                0x000026c8                uart2Write
+                0x0000278c                uart2TxEmpty
+                0x00002044                uart0Write
+                0x00001df0                uart0Putch
+                0x00001c10                uart0Init
+                0x00002148                uart0TxFlush
+                0x000027cc                uart2TxFlush
+                0x00001fd4                uart0Puts
+                0x000021e8                uart0Getch
+                0x00001f50                uart0Space
+                0x000022a4                uart2Init
+                0x00002108                uart0TxEmpty
+                0x0000286c                uart2Getch
+                0x00002474                uart2Putch
+                0x00002658                uart2Puts
+ .text          0x00002928      0x508 .\objects\uartISR.o
+                0x00002b98                uart2ISR
+                0x00002928                uart0ISR
+ .text          0x00002e30      0x114 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+                0x00002e30                __udivsi3
+                0x00002e30                __aeabi_uidiv
+                0x00002f2c                __aeabi_uidivmod
+ .text          0x00002f44        0x4 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+                0x00002f44                __aeabi_ldiv0
+                0x00002f44                __div0
+                0x00002f44                __aeabi_idiv0
+                0x00002f48                . = ALIGN (0x4)
+                0x00002f48                __code_end__ = .
+ *(.gnu.linkonce.t.*)
+ *(.glue_7)
+ .glue_7        0x00002f48        0x0 .\objects\main.o
+ .glue_7        0x00002f48        0x0 .\objects\startup.o
+ .glue_7        0x00002f48        0x0 .\objects\ConfigStick.o
+ .glue_7        0x00002f48        0x0 .\objects\armVIC.o
+ .glue_7        0x00002f48        0x0 .\objects\conio.o
+ .glue_7        0x00002f48        0x0 .\objects\delay.o
+ .glue_7        0x00002f48        0x0 .\objects\fio.o
+ .glue_7        0x00002f48        0x0 .\objects\interrupt.o
+ .glue_7        0x00002f48        0x0 .\objects\portlcd.o
+ .glue_7        0x00002f48        0x0 .\objects\syscalls_lpc.o
+ .glue_7        0x00002f48        0x0 .\objects\target_info.o
+ .glue_7        0x00002f48        0x0 .\objects\uart.o
+ .glue_7        0x00002f48        0x0 .\objects\uartISR.o
+ .glue_7        0x00002f48        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .glue_7        0x00002f48        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ *(.glue_7t)
+ .glue_7t       0x00002f48        0x0 .\objects\main.o
+ .glue_7t       0x00002f48        0x0 .\objects\startup.o
+ .glue_7t       0x00002f48        0x0 .\objects\ConfigStick.o
+ .glue_7t       0x00002f48        0x0 .\objects\armVIC.o
+ .glue_7t       0x00002f48        0x0 .\objects\conio.o
+ .glue_7t       0x00002f48        0x0 .\objects\delay.o
+ .glue_7t       0x00002f48        0x0 .\objects\fio.o
+ .glue_7t       0x00002f48        0x0 .\objects\interrupt.o
+ .glue_7t       0x00002f48        0x0 .\objects\portlcd.o
+ .glue_7t       0x00002f48        0x0 .\objects\syscalls_lpc.o
+ .glue_7t       0x00002f48        0x0 .\objects\target_info.o
+ .glue_7t       0x00002f48        0x0 .\objects\uart.o
+ .glue_7t       0x00002f48        0x0 .\objects\uartISR.o
+ .glue_7t       0x00002f48        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .glue_7t       0x00002f48        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ *(.gcc_except_table)
+ *(.gnu.linkonce.r.*)
+                0x00002f48                . = ALIGN (0x4)
+
+.rodata         0x00002f48       0x40
+ *(.rodata)
+ .rodata        0x00002f48       0x40 .\objects\portlcd.o
+                0x00002f88                . = ALIGN (0x4)
+                0x00002f88                _etext = .
+                0x00002f88                PROVIDE (etext, .)
+
+.data           0x40000000        0x4 load address 0x00002f88
+                0x40000000                __data_start__ = .
+                0x40000000                PROVIDE (__data_start__, .)
+ *(.data)
+ .data          0x40000000        0x0 .\objects\main.o
+ .data          0x40000000        0x0 .\objects\startup.o
+ .data          0x40000000        0x0 .\objects\ConfigStick.o
+ .data          0x40000000        0x0 .\objects\armVIC.o
+ .data          0x40000000        0x0 .\objects\conio.o
+ .data          0x40000000        0x4 .\objects\delay.o
+ .data          0x40000004        0x0 .\objects\fio.o
+ .data          0x40000004        0x0 .\objects\interrupt.o
+ .data          0x40000004        0x0 .\objects\portlcd.o
+ .data          0x40000004        0x0 .\objects\syscalls_lpc.o
+ .data          0x40000004        0x0 .\objects\target_info.o
+ .data          0x40000004        0x0 .\objects\uart.o
+ .data          0x40000004        0x0 .\objects\uartISR.o
+ .data          0x40000004        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .data          0x40000004        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ *(.data.*)
+ *(.gnu.linkonce.d*)
+                0x40000004                __data_end__ = .
+                0x40000004                PROVIDE (__data_end__, .)
+                0x40000004                . = ALIGN (0x4)
+                0x40000004                _edata = .
+                0x40000004                PROVIDE (edata, .)
+
+.bss            0x40000008     0x187c
+                0x40000008                __bss_start = .
+                0x40000008                __bss_start__ = .
+ *(.bss)
+ .bss           0x40000008        0x0 .\objects\main.o
+ .bss           0x40000008     0x1860 .\objects\startup.o
+                0x40000064                FIQ_Stack
+                0x40000044                ABT_Stack
+                0x40000024                UND_Stack
+                0x40000864                IRQ_Stack
+                0x40001864                SVC_Stack
+ .bss           0x40001868        0x8 .\objects\ConfigStick.o
+                0x40001868                Setup_Data
+ .bss           0x40001870        0x0 .\objects\armVIC.o
+ .bss           0x40001870        0x0 .\objects\conio.o
+ .bss           0x40001870        0x4 .\objects\delay.o
+ .bss           0x40001874        0x0 .\objects\fio.o
+ .bss           0x40001874        0x0 .\objects\interrupt.o
+ .bss           0x40001874        0x4 .\objects\portlcd.o
+ .bss           0x40001878        0x4 .\objects\syscalls_lpc.o
+ .bss           0x4000187c        0x0 .\objects\target_info.o
+ .bss           0x4000187c        0x0 .\objects\uart.o
+ .bss           0x4000187c        0x8 .\objects\uartISR.o
+ .bss           0x40001884        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .bss           0x40001884        0x0 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+ *(.gnu.linkonce.b*)
+                0x40001884                . = ALIGN (0x4)
+                0x40001884                __bss_end__ = .
+
+.bss2           0x40001884      0x218
+                0x40001884                __bss2_start = .
+                0x40001884                __bss2_start__ = .
+ *(COMMON)
+ COMMON         0x40001884      0x218 .\objects\uart.o
+                0x40001884                uart0_tx_buffer
+                0x40001904                uart2_rx_extract_idx
+                0x40001906                uart2_tx_insert_idx
+                0x40001908                uart0_tx_insert_idx
+                0x4000190a                uart0_rx_insert_idx
+                0x4000190c                uart2_rx_insert_idx
+                0x4000190e                uart0_tx_extract_idx
+                0x40001910                uart2_tx_buffer
+                0x40001990                uart2_tx_running
+                0x40001994                uart2_rx_buffer
+                0x40001a14                uart0_tx_running
+                0x40001a18                uart2_tx_extract_idx
+                0x40001a1a                uart0_rx_buffer
+                0x40001a9a                uart0_rx_extract_idx
+                0x40001a9c                . = ALIGN (0x4)
+                0x40001a9c                __bss2_end__ = .
+                0x40001a9c                _end = .
+                0x40001a9c                PROVIDE (end, .)
+
+.comment        0x00000000       0xc6
+ *(.comment)
+ .comment       0x00000000       0x12 .\objects\ConfigStick.o
+ .comment       0x00000012       0x12 .\objects\armVIC.o
+ .comment       0x00000024       0x12 .\objects\conio.o
+ .comment       0x00000036       0x12 .\objects\delay.o
+ .comment       0x00000048       0x12 .\objects\fio.o
+ .comment       0x0000005a       0x12 .\objects\interrupt.o
+ .comment       0x0000006c       0x12 .\objects\portlcd.o
+ .comment       0x0000007e       0x12 .\objects\syscalls_lpc.o
+ .comment       0x00000090       0x12 .\objects\target_info.o
+ .comment       0x000000a2       0x12 .\objects\uart.o
+ .comment       0x000000b4       0x12 .\objects\uartISR.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x1e0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 .\objects\main.o
+ .debug_aranges
+                0x00000020       0x20 .\objects\startup.o
+ .debug_aranges
+                0x00000040       0x20 .\objects\ConfigStick.o
+ .debug_aranges
+                0x00000060       0x20 .\objects\armVIC.o
+ .debug_aranges
+                0x00000080       0x20 .\objects\conio.o
+ .debug_aranges
+                0x000000a0       0x20 .\objects\delay.o
+ .debug_aranges
+                0x000000c0       0x20 .\objects\fio.o
+ .debug_aranges
+                0x000000e0       0x20 .\objects\interrupt.o
+ .debug_aranges
+                0x00000100       0x20 .\objects\portlcd.o
+ .debug_aranges
+                0x00000120       0x20 .\objects\syscalls_lpc.o
+ .debug_aranges
+                0x00000140       0x20 .\objects\target_info.o
+ .debug_aranges
+                0x00000160       0x20 .\objects\uart.o
+ .debug_aranges
+                0x00000180       0x20 .\objects\uartISR.o
+ .debug_aranges
+                0x000001a0       0x20 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x000001c0       0x20 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+
+.debug_pubnames
+                0x00000000      0x5ef
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xc4 .\objects\ConfigStick.o
+ .debug_pubnames
+                0x000000c4       0x6a .\objects\armVIC.o
+ .debug_pubnames
+                0x0000012e       0x3b .\objects\conio.o
+ .debug_pubnames
+                0x00000169       0x2b .\objects\delay.o
+ .debug_pubnames
+                0x00000194       0x1f .\objects\fio.o
+ .debug_pubnames
+                0x000001b3       0x66 .\objects\interrupt.o
+ .debug_pubnames
+                0x00000219      0x105 .\objects\portlcd.o
+ .debug_pubnames
+                0x0000031e       0x37 .\objects\syscalls_lpc.o
+ .debug_pubnames
+                0x00000355       0x2a .\objects\target_info.o
+ .debug_pubnames
+                0x0000037f      0x244 .\objects\uart.o
+ .debug_pubnames
+                0x000005c3       0x2c .\objects\uartISR.o
+
+.debug_info     0x00000000     0x2c86
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0x89 .\objects\main.o
+ .debug_info    0x00000089       0x8c .\objects\startup.o
+ .debug_info    0x00000115      0x310 .\objects\ConfigStick.o
+ .debug_info    0x00000425      0x263 .\objects\armVIC.o
+ .debug_info    0x00000688      0x242 .\objects\conio.o
+ .debug_info    0x000008ca      0x1e4 .\objects\delay.o
+ .debug_info    0x00000aae      0x19f .\objects\fio.o
+ .debug_info    0x00000c4d      0x18e .\objects\interrupt.o
+ .debug_info    0x00000ddb      0x478 .\objects\portlcd.o
+ .debug_info    0x00001253      0xda7 .\objects\syscalls_lpc.o
+ .debug_info    0x00001ffa      0x101 .\objects\target_info.o
+ .debug_info    0x000020fb      0x731 .\objects\uart.o
+ .debug_info    0x0000282c      0x380 .\objects\uartISR.o
+ .debug_info    0x00002bac       0x6d C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .debug_info    0x00002c19       0x6d C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+
+.debug_abbrev   0x00000000      0x806
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x14 .\objects\main.o
+ .debug_abbrev  0x00000014       0x14 .\objects\startup.o
+ .debug_abbrev  0x00000028       0xb5 .\objects\ConfigStick.o
+ .debug_abbrev  0x000000dd       0xa8 .\objects\armVIC.o
+ .debug_abbrev  0x00000185       0x92 .\objects\conio.o
+ .debug_abbrev  0x00000217       0x7a .\objects\delay.o
+ .debug_abbrev  0x00000291       0x50 .\objects\fio.o
+ .debug_abbrev  0x000002e1       0x63 .\objects\interrupt.o
+ .debug_abbrev  0x00000344       0xf9 .\objects\portlcd.o
+ .debug_abbrev  0x0000043d      0x198 .\objects\syscalls_lpc.o
+ .debug_abbrev  0x000005d5       0x5e .\objects\target_info.o
+ .debug_abbrev  0x00000633      0x124 .\objects\uart.o
+ .debug_abbrev  0x00000757       0x87 .\objects\uartISR.o
+ .debug_abbrev  0x000007de       0x14 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x000007f2       0x14 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+
+.debug_line     0x00000000      0xb9f
+ *(.debug_line)
+ .debug_line    0x00000000       0x4c .\objects\main.o
+ .debug_line    0x0000004c       0x70 .\objects\startup.o
+ .debug_line    0x000000bc      0x147 .\objects\ConfigStick.o
+ .debug_line    0x00000203       0x69 .\objects\armVIC.o
+ .debug_line    0x0000026c       0xd9 .\objects\conio.o
+ .debug_line    0x00000345       0xd5 .\objects\delay.o
+ .debug_line    0x0000041a       0xd9 .\objects\fio.o
+ .debug_line    0x000004f3       0x5c .\objects\interrupt.o
+ .debug_line    0x0000054f       0xd7 .\objects\portlcd.o
+ .debug_line    0x00000626      0x179 .\objects\syscalls_lpc.o
+ .debug_line    0x0000079f       0x5c .\objects\target_info.o
+ .debug_line    0x000007fb      0x199 .\objects\uart.o
+ .debug_line    0x00000994      0x11e .\objects\uartISR.o
+ .debug_line    0x00000ab2       0x8a C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+ .debug_line    0x00000b3c       0x63 C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+
+.debug_frame    0x00000000      0x930
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xf0 .\objects\ConfigStick.o
+ .debug_frame   0x000000f0      0x110 .\objects\armVIC.o
+ .debug_frame   0x00000200       0x90 .\objects\conio.o
+ .debug_frame   0x00000290       0x50 .\objects\delay.o
+ .debug_frame   0x000002e0       0x30 .\objects\fio.o
+ .debug_frame   0x00000310       0xb4 .\objects\interrupt.o
+ .debug_frame   0x000003c4      0x210 .\objects\portlcd.o
+ .debug_frame   0x000005d4       0x70 .\objects\syscalls_lpc.o
+ .debug_frame   0x00000644       0x50 .\objects\target_info.o
+ .debug_frame   0x00000694      0x210 .\objects\uart.o
+ .debug_frame   0x000008a4       0x60 .\objects\uartISR.o
+ .debug_frame   0x00000904       0x2c C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+
+.debug_str      0x00000000       0x5c
+ *(.debug_str)
+ .debug_str     0x00000000        0x6 .\objects\armVIC.o
+ .debug_str     0x00000006       0x12 .\objects\portlcd.o
+ .debug_str     0x00000018       0x20 .\objects\syscalls_lpc.o
+ .debug_str     0x00000038       0x12 .\objects\uart.o
+ .debug_str     0x0000004a       0x12 .\objects\uartISR.o
+
+.debug_loc      0x00000000      0xad4
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x126 .\objects\ConfigStick.o
+ .debug_loc     0x00000126      0x150 .\objects\armVIC.o
+ .debug_loc     0x00000276       0xa8 .\objects\conio.o
+ .debug_loc     0x0000031e       0x54 .\objects\delay.o
+ .debug_loc     0x00000372       0x2a .\objects\fio.o
+ .debug_loc     0x0000039c       0xd2 .\objects\interrupt.o
+ .debug_loc     0x0000046e      0x2a0 .\objects\portlcd.o
+ .debug_loc     0x0000070e       0x7e .\objects\syscalls_lpc.o
+ .debug_loc     0x0000078c       0x54 .\objects\target_info.o
+ .debug_loc     0x000007e0      0x2a0 .\objects\uart.o
+ .debug_loc     0x00000a80       0x54 .\objects\uartISR.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+LOAD C:\Programme\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libm.a
+LOAD C:\Programme\Hitex\GnuToolPackageArm\bin\..\arm-hitex-elf\lib\interwork/libc.a
+LOAD C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a
+OUTPUT(.\objects\GGT.elf elf32-littlearm)
+
+Cross Reference Table
+
+Symbol                                            File
+ABT_Stack                                         .\objects\startup.o
+ADC_get_channel                                   .\objects\ConfigStick.o
+BaseStickConfig                                   .\objects\ConfigStick.o
+Check_Hardware                                    .\objects\ConfigStick.o
+DAbt_Handler                                      .\objects\interrupt.o
+                                                  .\objects\startup.o
+FIQ_Handler                                       .\objects\interrupt.o
+                                                  .\objects\startup.o
+FIQ_Stack                                         .\objects\startup.o
+GPIOInit                                          .\objects\fio.o
+GPIO_Configuration                                .\objects\ConfigStick.o
+GetCclk                                           .\objects\target_info.o
+GetPclk                                           .\objects\target_info.o
+                                                  .\objects\delay.o
+                                                  .\objects\ConfigStick.o
+IRQ_Stack                                         .\objects\startup.o
+LCD_bargraph                                      .\objects\portlcd.o
+LCD_cls                                           .\objects\portlcd.o
+LCD_cur_off                                       .\objects\portlcd.o
+LCD_gotoxy                                        .\objects\portlcd.o
+LCD_init                                          .\objects\portlcd.o
+                                                  .\objects\ConfigStick.o
+LCD_load                                          .\objects\portlcd.o
+LCD_on                                            .\objects\portlcd.o
+LCD_putc                                          .\objects\portlcd.o
+LCD_puts                                          .\objects\portlcd.o
+PAbt_Handler                                      .\objects\interrupt.o
+                                                  .\objects\startup.o
+Peripheral_Clock_Configuration                    .\objects\ConfigStick.o
+Power_Configuration                               .\objects\ConfigStick.o
+ResetEntry                                        .\objects\startup.o
+SVC_Stack                                         .\objects\startup.o
+SWI_Handler                                       .\objects\interrupt.o
+                                                  .\objects\startup.o
+Setup_Data                                        .\objects\ConfigStick.o
+Start_init_s                                      .\objects\startup.o
+UND_Stack                                         .\objects\startup.o
+Undef_Handler                                     .\objects\interrupt.o
+                                                  .\objects\startup.o
+WDT_Configuration                                 .\objects\ConfigStick.o
+__aeabi_idiv0                                     C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+__aeabi_ldiv0                                     C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+__aeabi_uidiv                                     C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+__aeabi_uidivmod                                  C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+__bss2_end__                                      .\objects\startup.o
+__bss2_start__                                    .\objects\startup.o
+__bss_end__                                       .\objects\startup.o
+__bss_start__                                     .\objects\startup.o
+__data_start__                                    .\objects\startup.o
+__div0                                            C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_dvmd_tls.o)
+                                                  C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+__udivsi3                                         C:\Programme\Hitex\GnuToolPackageArm\bin\..\lib\gcc\arm-hitex-elf\4.1.1\interwork/libgcc.a(_udivsi3.o)
+                                                  .\objects\target_info.o
+_edata                                            .\objects\startup.o
+_end_of_heap_                                     .\objects\syscalls_lpc.o
+_etext                                            .\objects\startup.o
+_read_r                                           .\objects\syscalls_lpc.o
+_sbrk_r                                           .\objects\syscalls_lpc.o
+_startup                                          .\objects\startup.o
+_write_r                                          .\objects\syscalls_lpc.o
+delay                                             .\objects\delay.o
+disableFIQ                                        .\objects\armVIC.o
+disableIRQ                                        .\objects\armVIC.o
+                                                  .\objects\uart.o
+enableFIQ                                         .\objects\armVIC.o
+enableIRQ                                         .\objects\armVIC.o
+                                                  .\objects\ConfigStick.o
+end                                               .\objects\syscalls_lpc.o
+getch                                             .\objects\conio.o
+getche                                            .\objects\conio.o
+init_delay                                        .\objects\delay.o
+kbhit                                             .\objects\conio.o
+lcd_delay                                         .\objects\portlcd.o
+lcd_read_stat                                     .\objects\portlcd.o
+lcd_wait_busy                                     .\objects\portlcd.o
+lcd_write                                         .\objects\portlcd.o
+lcd_write_4bit                                    .\objects\portlcd.o
+lcd_write_cmd                                     .\objects\portlcd.o
+lcd_write_data                                    .\objects\portlcd.o
+main                                              .\objects\main.o
+                                                  .\objects\startup.o
+putch                                             .\objects\conio.o
+restoreFIQ                                        .\objects\armVIC.o
+restoreIRQ                                        .\objects\armVIC.o
+                                                  .\objects\uart.o
+start                                             .\objects\startup.o
+uart0Getch                                        .\objects\uart.o
+                                                  .\objects\syscalls_lpc.o
+                                                  .\objects\conio.o
+uart0ISR                                          .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart0Init                                         .\objects\uart.o
+                                                  .\objects\ConfigStick.o
+uart0Putch                                        .\objects\uart.o
+                                                  .\objects\syscalls_lpc.o
+                                                  .\objects\conio.o
+uart0Puts                                         .\objects\uart.o
+uart0Space                                        .\objects\uart.o
+uart0TxEmpty                                      .\objects\uart.o
+uart0TxFlush                                      .\objects\uart.o
+uart0Write                                        .\objects\uart.o
+uart0_rx_buffer                                   .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart0_rx_extract_idx                              .\objects\uartISR.o
+                                                  .\objects\uart.o
+                                                  .\objects\conio.o
+uart0_rx_insert_idx                               .\objects\uartISR.o
+                                                  .\objects\uart.o
+                                                  .\objects\conio.o
+uart0_tx_buffer                                   .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart0_tx_extract_idx                              .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart0_tx_insert_idx                               .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart0_tx_running                                  .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2Getch                                        .\objects\uart.o
+uart2ISR                                          .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2Init                                         .\objects\uart.o
+                                                  .\objects\ConfigStick.o
+uart2Putch                                        .\objects\uart.o
+uart2Puts                                         .\objects\uart.o
+uart2Space                                        .\objects\uart.o
+uart2TxEmpty                                      .\objects\uart.o
+uart2TxFlush                                      .\objects\uart.o
+uart2Write                                        .\objects\uart.o
+uart2_rx_buffer                                   .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_rx_extract_idx                              .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_rx_insert_idx                               .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_tx_buffer                                   .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_tx_extract_idx                              .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_tx_insert_idx                               .\objects\uartISR.o
+                                                  .\objects\uart.o
+uart2_tx_running                                  .\objects\uartISR.o
+                                                  .\objects\uart.o
